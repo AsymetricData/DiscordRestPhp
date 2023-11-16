@@ -14,7 +14,7 @@ $discord_api = new DiscordApi(
     api_endpoint: $_ENV['DISCORD_API_ENDPOINT'],
 );
 
-$guild = $discord_api->guild('1167126609388650597');
+$guild = $discord_api->guild($_ENV['TEST_GUILD_ID']);
 
 foreach($guild->getMembers() as $member){
    echo $member->user->global_name;
