@@ -22,7 +22,7 @@ class User implements ResourceInterface
     public readonly ?int $flags;
     public readonly ?string $accent_color;
     public readonly ?string $global_name;
-    public readonly ?string $avatar_decoration_data;
+    public readonly ?object $avatar_decoration_data;
     public readonly ?string $banner_color;
 
     public function __construct(array $fields)

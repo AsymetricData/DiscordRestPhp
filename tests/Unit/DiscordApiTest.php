@@ -18,7 +18,7 @@ test('canGetGuild', function () use($discord_api) {
 
 test('canGetMembers', function () use($discord_api) {
     $guild = $discord_api->guild($_ENV['TEST_GUILD_ID']);
-    expect($guild->getMembers())->toBeArray();
+    expect($guild->listMembers())->toBeArray();
 });
 
 test('canGetChannels', function () use($discord_api) {

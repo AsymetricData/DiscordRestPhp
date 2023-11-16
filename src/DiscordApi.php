@@ -20,14 +20,10 @@ class DiscordApi
         $this->client = new Client();
     }
 
-    public function get(string $url) : ResponseInterface
+    public function get(string $url, array $options = [] ): ResponseInterface
     {
-        return $this->client->request('GET',$this->api_endpoint . '/v'. $this->api_version . '/' . $url,[
-            'headers' => [
-                'Authorization' => ' Bot ' . $this->token,
-                'User-Agent' => $this->user_agent,
-            ]
-        ]);
+        $options = array_merge(['headers' => ['Authorization' => ' Bot ' . $this->token,'User-Agent' => $this->user_agent]], $options);
+        return $this->client->request('GET',$this->api_endpoint . '/v'. $this->api_version . '/' . $url,$options);
     }
 
     public function guild(string $id) : Guild
